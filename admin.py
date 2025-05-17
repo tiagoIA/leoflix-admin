@@ -1,82 +1,68 @@
-from flask import Flask, request, render_template_string, redirect
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory
 import os
+import json
 import subprocess
-from datetime import datetime
 
 app = Flask(__name__)
 
-LINKS_DIR = "links"
+# Garante que a pasta 'links' existe
+if not os.path.exists('links'):
+    os.makedirs('links')
 
-# Garante que a pasta exista
-os.makedirs(LINKS_DIR, exist_ok=True)
+# Garante que a pasta 'static' existe
+if not os.path.exists('static'):
+    os.makedirs('static')
 
-# Configura o Git para permitir commits no ambiente Render
-subprocess.run(['git', 'config', '--global', 'user.name', 'LeoFlix Admin Bot'])
-subprocess.run(['git', 'config', '--global', 'user.email', 'admin@leoflix.com'])
-
-HTML_FORM = """
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <title>LeoFlix Admin</title>
-</head>
-<body>
-    <h1>Adicionar Vídeo</h1>
-    <form method="POST">
-        <label for="pasta">Nome da Pasta (Categoria):</label><br>
-        <input type="text" id="pasta" name="pasta" required><br><br>
-
-        <label for="titulo">Título do Vídeo:</label><br>
-        <input type="text" id="titulo" name="titulo" required><br><br>
-
-        <label for="link">Link do Vídeo (YouTube):</label><br>
-        <input type="text" id="link" name="link" required><br><br>
-
-        <button type="submit">Adicionar</button>
-    </form>
-
-    <hr>
-    <h2>Pastas Existentes</h2>
-    <ul>
-    {% for pasta in pastas %}
-        <li>{{ pasta }}</li>
-    {% endfor %}
-    </ul>
-</body>
-</html>
-"""
-
-@app.route("/", methods=["GET", "POST"])
+@app.route('/')
 def index():
-    error = None
-    if request.method == "POST":
-        pasta = request.form["pasta"].strip().replace(" ", "_")
-        titulo = request.form["titulo"].strip()
-        link = request.form["link"].strip()
+    pastas = os.listdir('links')
+    return render_template('index.html', pastas=pastas)
 
-        if not pasta or not titulo or not link:
-            error = "Todos os campos são obrigatórios!"
-        else:
-            file_path = os.path.join(LINKS_DIR, f"{pasta}.txt")
-            with open(file_path, "a", encoding="utf-8") as f:
-                f.write(f"{titulo} | {link}\n")
+@app.route('/', methods=['POST'])
+def adicionar():
+    pasta = request.form['pasta']
+    titulo = request.form['titulo']
+    link = request.form['link']
 
-            # Commit automático no Git
-            try:
-                subprocess.run(["git", "add", "."], check=True)
-                subprocess.run(["git", "commit", "-m", f"Atualizado via admin web: {datetime.now()}"], check=True)
-                subprocess.run(["git", "push"], check=True)
-            except subprocess.CalledProcessError as e:
-                return f"Erro ao fazer push: {e}"
+    if not pasta or not link:
+        return redirect(url_for('index'))
 
-            return redirect("/")
+    if not os.path.exists('links'):
+        os.makedirs('links')
 
-    pastas = []
-    if os.path.exists(LINKS_DIR):
-        pastas = [f.replace(".txt", "") for f in os.listdir(LINKS_DIR) if f.endswith(".txt")]
+    caminho = os.path.join('links', f'{pasta}.txt')
+    with open(caminho, 'a', encoding='utf-8') as f:
+        f.write(link + '\n')
 
-    return render_template_string(HTML_FORM, pastas=pastas, error=error)
+    gerar_json()
 
-if __name__ == "__main__":
-    app.run(debug=True, port=10000, host="0.0.0.0")
+    try:
+        subprocess.run(['git', 'config', '--global', 'user.email', 'seuemail@exemplo.com'])
+        subprocess.run(['git', 'config', '--global', 'user.name', 'tiagoIA'])
+        subprocess.run(['git', 'add', '.'])
+        subprocess.run(['git', 'commit', '-m', 'Atualização automática de links'])
+        subprocess.run(['git', 'push'])
+    except Exception as e:
+        print("Erro ao fazer push:", e)
+
+    return redirect(url_for('index'))
+
+def gerar_json():
+    videos = {}
+    for arquivo in os.listdir('links'):
+        if arquivo.endswith('.txt'):
+            nome = arquivo.replace('.txt', '')
+            with open(os.path.join('links', arquivo), 'r', encoding='utf-8') as f:
+                links = [linha.strip() for linha in f.readlines() if linha.strip()]
+                videos[nome] = links
+
+    with open('static/videos.json', 'w', encoding='utf-8') as f:
+        json.dump(videos, f, indent=2, ensure_ascii=False)
+
+# Rota para servir arquivos da pasta static (como videos.json)
+@app.route('/static/<path:filename>')
+def static_files(filename):
+    return send_from_directory(os.path.join(app.root_path, 'static'), filename)
+
+if __name__ == '__main__':
+    app.run(debug=True)

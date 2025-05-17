@@ -57,6 +57,7 @@ def gerar_json():
     with open('static/videos.json', 'w', encoding='utf-8') as f:
         json.dump(videos, f, indent=2, ensure_ascii=False)
 
+
 # Rota para servir o videos.json com suporte a CORS
 @app.route('/static/<path:filename>')
 def static_files(filename):

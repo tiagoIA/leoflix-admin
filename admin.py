@@ -9,6 +9,7 @@ CORS(app)
 LINKS_DIR = 'static/links'
 VIDEOS_JSON_PATH = 'videos.json'  # fora da pasta static
 
+# Garante que a pasta exista
 os.makedirs(LINKS_DIR, exist_ok=True)
 
 @app.route('/', methods=['GET'])
@@ -67,4 +68,5 @@ def gerar_json():
         json.dump(videos, f, indent=2, ensure_ascii=False)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=10000, debug=True)
+

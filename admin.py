@@ -1,9 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory
+from flask_cors import CORS
 import os
 import json
 import subprocess
 
 app = Flask(__name__)
+CORS(app)
 
 # Garante que a pasta 'links' existe
 if not os.path.exists('links'):
@@ -21,14 +23,10 @@ def index():
 @app.route('/', methods=['POST'])
 def adicionar():
     pasta = request.form['pasta']
-    titulo = request.form['titulo']
     link = request.form['link']
 
     if not pasta or not link:
         return redirect(url_for('index'))
-
-    if not os.path.exists('links'):
-        os.makedirs('links')
 
     caminho = os.path.join('links', f'{pasta}.txt')
     with open(caminho, 'a', encoding='utf-8') as f:
@@ -59,10 +57,11 @@ def gerar_json():
     with open('static/videos.json', 'w', encoding='utf-8') as f:
         json.dump(videos, f, indent=2, ensure_ascii=False)
 
-# Rota para servir arquivos da pasta static (como videos.json)
+# Rota para servir o videos.json com suporte a CORS
 @app.route('/static/<path:filename>')
 def static_files(filename):
     return send_from_directory(os.path.join(app.root_path, 'static'), filename)
 
 if __name__ == '__main__':
     app.run(debug=True)
+

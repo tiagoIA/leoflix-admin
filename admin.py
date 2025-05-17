@@ -12,20 +12,21 @@ VIDEOS_JSON_PATH = "static/videos.json"
 # Garante que a pasta de links existe
 os.makedirs(LINKS_DIR, exist_ok=True)
 
-# HTML simples para o painel admin
+# HTML do painel admin
 HTML_TEMPLATE = """
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
+    <meta charset="UTF-8">
     <title>LeoFlix Admin</title>
 </head>
 <body>
     <h1>Adicionar Vídeo</h1>
     <form method="post">
-        <label>Nome da Pasta (Categoria):</label><br>
-        <input type="text" name="folder" required><br><br>
-        <label>Link do Vídeo (YouTube):</label><br>
-        <input type="text" name="link" required><br><br>
+        <label for="folder">Nome da Pasta (Categoria):</label><br>
+        <input type="text" id="folder" name="folder" required><br><br>
+        <label for="link">Link do Vídeo (YouTube):</label><br>
+        <input type="text" id="link" name="link" required><br><br>
         <button type="submit">Adicionar</button>
     </form>
     <hr>
@@ -56,20 +57,20 @@ def gerar_videos_json():
 @app.route("/", methods=["GET", "POST"])
 def admin():
     if request.method == "POST":
-        folder = request.form["folder"].strip()
-        link = request.form["link"].strip()
+        folder = request.form.get("folder", "").strip()
+        link = request.form.get("link", "").strip()
 
         if not folder or not link:
             return "Erro: todos os campos são obrigatórios", 400
 
-        # Salva o link no arquivo da pasta
+        # Caminho para salvar o link
         arquivo_path = os.path.join(LINKS_DIR, f"{folder}.txt")
         with open(arquivo_path, "a", encoding="utf-8") as f:
             f.write(link + "\n")
 
+        # Atualiza o videos.json
         gerar_videos_json()
 
-    # Exibe as pastas existentes
     pastas = [os.path.splitext(p)[0] for p in os.listdir(LINKS_DIR) if p.endswith(".txt")]
     return render_template_string(HTML_TEMPLATE, pastas=pastas)
 
@@ -80,3 +81,4 @@ def videos():
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=10000)
+

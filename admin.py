@@ -1,68 +1,63 @@
-from flask import Flask, render_template, request, redirect, url_for, send_from_directory
+from flask import Flask, request, redirect, url_for
 from flask_cors import CORS
 import os
 import json
-import subprocess
 
 app = Flask(__name__)
 CORS(app)
 
-# Garante que a pasta 'links' existe
-if not os.path.exists('links'):
-    os.makedirs('links')
+LINKS_DIR = 'static/links'
+VIDEOS_JSON_PATH = 'static/videos.json'
 
-# Garante que a pasta 'static' existe
-if not os.path.exists('static'):
-    os.makedirs('static')
+# Garante que a pasta 'static/links' exista
+os.makedirs(LINKS_DIR, exist_ok=True)
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def index():
-    pastas = os.listdir('links')
-    return render_template('index.html', pastas=pastas)
+    pastas = sorted([f.replace('.txt', '') for f in os.listdir(LINKS_DIR) if f.endswith('.txt')])
+    html = '''
+    <h1>Adicionar Vídeo</h1>
+    <form method="post">
+        Nome da Pasta (Categoria):<br>
+        <input type="text" name="pasta"><br><br>
+        Link do Vídeo (YouTube):<br>
+        <input type="text" name="link"><br><br>
+        <input type="submit" value="Adicionar">
+    </form>
+    <hr>
+    <h2>Pastas Existentes</h2>
+    <ul>
+    '''
+    for pasta in pastas:
+        html += f'<li>{pasta}</li>'
+    html += '</ul>'
+    return html
 
 @app.route('/', methods=['POST'])
 def adicionar():
-    pasta = request.form['pasta']
-    link = request.form['link']
+    pasta = request.form['pasta'].strip()
+    link = request.form['link'].strip()
 
     if not pasta or not link:
         return redirect(url_for('index'))
 
-    caminho = os.path.join('links', f'{pasta}.txt')
+    caminho = os.path.join(LINKS_DIR, f'{pasta}.txt')
     with open(caminho, 'a', encoding='utf-8') as f:
         f.write(link + '\n')
 
     gerar_json()
-
-    try:
-        subprocess.run(['git', 'config', '--global', 'user.email', 'seuemail@exemplo.com'])
-        subprocess.run(['git', 'config', '--global', 'user.name', 'tiagoIA'])
-        subprocess.run(['git', 'add', '.'])
-        subprocess.run(['git', 'commit', '-m', 'Atualização automática de links'])
-        subprocess.run(['git', 'push'])
-    except Exception as e:
-        print("Erro ao fazer push:", e)
-
     return redirect(url_for('index'))
 
 def gerar_json():
     videos = {}
-    for arquivo in os.listdir('links'):
+    for arquivo in os.listdir(LINKS_DIR):
         if arquivo.endswith('.txt'):
-            nome = arquivo.replace('.txt', '')
-            with open(os.path.join('links', arquivo), 'r', encoding='utf-8') as f:
+            categoria = arquivo.replace('.txt', '')
+            with open(os.path.join(LINKS_DIR, arquivo), 'r', encoding='utf-8') as f:
                 links = [linha.strip() for linha in f.readlines() if linha.strip()]
-                videos[nome] = links
-
-    with open('static/videos.json', 'w', encoding='utf-8') as f:
+                videos[categoria] = links
+    with open(VIDEOS_JSON_PATH, 'w', encoding='utf-8') as f:
         json.dump(videos, f, indent=2, ensure_ascii=False)
-
-
-# Rota para servir o videos.json com suporte a CORS
-@app.route('/static/<path:filename>')
-def static_files(filename):
-    return send_from_directory(os.path.join(app.root_path, 'static'), filename)
 
 if __name__ == '__main__':
     app.run(debug=True)
-

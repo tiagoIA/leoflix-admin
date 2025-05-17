@@ -1,59 +1,188 @@
 {
-    "Smilingüido": [
-        "https://www.youtube.com/watch?v=DQMWCa8NFyQ",
-        "https://www.youtube.com/watch?v=SXsWZVWR0k8",
-        "https://www.youtube.com/watch?v=Kz4D5WIVjo4",
-        "https://www.youtube.com/watch?v=xPRjZsjE0Ok",
-        "https://www.youtube.com/watch?v=a6WmBACVWt0",
-        "https://www.youtube.com/watch?v=g4FPi8b4iG4"
-    ],
-    "Superbook": [
-        "https://www.youtube.com/watch?v=x2xQWaqRO7M",
-        "https://www.youtube.com/watch?v=TFpoczNfp0I",
-        "https://www.youtube.com/watch?v=nAcNL9KTLK8",
-        "https://www.youtube.com/watch?v=fMWEvkXXnfc",
-        "https://www.youtube.com/watch?v=66NRqZBXtNo",
-        "https://www.youtube.com/watch?v=ftb2tS8E344"
-    ],
-    "Anjinhos da Esperança": [
-        "https://www.youtube.com/watch?v=vw_xToTMl9Y",
-        "https://www.youtube.com/watch?v=Im7W1eVaNxk&t=10s",
-        "https://www.youtube.com/watch?v=S0ZHwJKBeCg&t=15s",
-        "https://www.youtube.com/watch?v=UmEXRBD4L1s&t=7s"
-    ],
-    "Numberblocks": [
-        "https://www.youtube.com/watch?v=4v4mcaVVTAQ",
-        "https://www.youtube.com/watch?v=RaBzen5geVQ&t=1504s",
-        "https://www.youtube.com/watch?v=Y5xAQzE-P1k",
-        "https://www.youtube.com/watch?v=ybwSkdEWgRQ",
-        "https://www.youtube.com/watch?v=B1jjJrR7Zqg",
-        "https://www.youtube.com/watch?v=sVYUJzKyY7s",
-        "https://www.youtube.com/watch?v=xWopFn1TnRI",
-        "https://www.youtube.com/watch?v=MOMnAW1VSBQ",
-        "https://www.youtube.com/watch?v=HPrPUqeRxv8",
-        "https://www.youtube.com/watch?v=Ku_843utD0o",
-        "https://www.youtube.com/watch?v=vfWd3_vVezM",
-        "https://www.youtube.com/watch?v=a1JRktkkPsA"
-    ],
-    "Hot Wheels": [
-        "https://www.youtube.com/watch?v=Lwdi_WzoT38",
-        "https://www.youtube.com/watch?v=bgDLHxd4Jxg",
-        "https://www.youtube.com/watch?v=ADqLhxmUG_4&t=9s",
-        "https://www.youtube.com/watch?v=TdGNhLCejYo&t=23s"
-    ],
-    "Bluey Português Brasil Canal": [
-        "https://www.youtube.com/watch?v=RpW_8TEdF8M&list=PLVkj_daPh17Sb8YEv5PVbyCjqz7IkDHXA&index=3",
-        "https://www.youtube.com/watch?v=mMC352cfAA8&list=PLVkj_daPh17Sb8YEv5PVbyCjqz7IkDHXA&index=4",
-        "https://www.youtube.com/watch?v=fYJD9aRRwV0&list=PLVkj_daPh17Sb8YEv5PVbyCjqz7IkDHXA&index=5",
-        "https://www.youtube.com/watch?v=CElTq5DannU&list=PLVkj_daPh17Sb8YEv5PVbyCjqz7IkDHXA&index=6"
-    ],
-    "O Show da Luna!": [
-        "https://www.youtube.com/watch?v=FXdKwbOQce4",
-        "https://www.youtube.com/watch?v=nnbCMqnvvy8",
-        "https://www.youtube.com/watch?v=hRl7q-KQaUo",
-        "https://www.youtube.com/watch?v=qGSnuo83vHY",
-        "https://www.youtube.com/watch?v=K8N-mZ1mvhg",
-        "https://www.youtube.com/watch?v=E4--QaEEHKQ",
-        "https://www.youtube.com/watch?v=cykfNNJipPU"
-    ]
+  "Smilingüido": [
+    {
+      "title": "Vídeo 1",
+      "url": "https://www.youtube.com/watch?v=DQMWCa8NFyQ"
+    },
+    {
+      "title": "Vídeo 2",
+      "url": "https://www.youtube.com/watch?v=SXsWZVWR0k8"
+    },
+    {
+      "title": "Vídeo 3",
+      "url": "https://www.youtube.com/watch?v=Kz4D5WIVjo4"
+    },
+    {
+      "title": "Vídeo 4",
+      "url": "https://www.youtube.com/watch?v=xPRjZsjE0Ok"
+    },
+    {
+      "title": "Vídeo 5",
+      "url": "https://www.youtube.com/watch?v=a6WmBACVWt0"
+    },
+    {
+      "title": "Vídeo 6",
+      "url": "https://www.youtube.com/watch?v=g4FPi8b4iG4"
+    }
+  ],
+  "Superbook": [
+    {
+      "title": "Vídeo 1",
+      "url": "https://www.youtube.com/watch?v=x2xQWaqRO7M"
+    },
+    {
+      "title": "Vídeo 2",
+      "url": "https://www.youtube.com/watch?v=TFpoczNfp0I"
+    },
+    {
+      "title": "Vídeo 3",
+      "url": "https://www.youtube.com/watch?v=nAcNL9KTLK8"
+    },
+    {
+      "title": "Vídeo 4",
+      "url": "https://www.youtube.com/watch?v=fMWEvkXXnfc"
+    },
+    {
+      "title": "Vídeo 5",
+      "url": "https://www.youtube.com/watch?v=66NRqZBXtNo"
+    },
+    {
+      "title": "Vídeo 6",
+      "url": "https://www.youtube.com/watch?v=ftb2tS8E344"
+    }
+  ],
+  "Anjinhos da Esperança": [
+    {
+      "title": "Vídeo 1",
+      "url": "https://www.youtube.com/watch?v=vw_xToTMl9Y"
+    },
+    {
+      "title": "Vídeo 2",
+      "url": "https://www.youtube.com/watch?v=Im7W1eVaNxk&t=10s"
+    },
+    {
+      "title": "Vídeo 3",
+      "url": "https://www.youtube.com/watch?v=S0ZHwJKBeCg&t=15s"
+    },
+    {
+      "title": "Vídeo 4",
+      "url": "https://www.youtube.com/watch?v=UmEXRBD4L1s&t=7s"
+    }
+  ],
+  "Numberblocks": [
+    {
+      "title": "Vídeo 1",
+      "url": "https://www.youtube.com/watch?v=4v4mcaVVTAQ"
+    },
+    {
+      "title": "Vídeo 2",
+      "url": "https://www.youtube.com/watch?v=RaBzen5geVQ&t=1504s"
+    },
+    {
+      "title": "Vídeo 3",
+      "url": "https://www.youtube.com/watch?v=Y5xAQzE-P1k"
+    },
+    {
+      "title": "Vídeo 4",
+      "url": "https://www.youtube.com/watch?v=ybwSkdEWgRQ"
+    },
+    {
+      "title": "Vídeo 5",
+      "url": "https://www.youtube.com/watch?v=B1jjJrR7Zqg"
+    },
+    {
+      "title": "Vídeo 6",
+      "url": "https://www.youtube.com/watch?v=sVYUJzKyY7s"
+    },
+    {
+      "title": "Vídeo 7",
+      "url": "https://www.youtube.com/watch?v=xWopFn1TnRI"
+    },
+    {
+      "title": "Vídeo 8",
+      "url": "https://www.youtube.com/watch?v=MOMnAW1VSBQ"
+    },
+    {
+      "title": "Vídeo 9",
+      "url": "https://www.youtube.com/watch?v=HPrPUqeRxv8"
+    },
+    {
+      "title": "Vídeo 10",
+      "url": "https://www.youtube.com/watch?v=Ku_843utD0o"
+    },
+    {
+      "title": "Vídeo 11",
+      "url": "https://www.youtube.com/watch?v=vfWd3_vVezM"
+    },
+    {
+      "title": "Vídeo 12",
+      "url": "https://www.youtube.com/watch?v=a1JRktkkPsA"
+    }
+  ],
+  "Hot Wheels": [
+    {
+      "title": "Vídeo 1",
+      "url": "https://www.youtube.com/watch?v=Lwdi_WzoT38"
+    },
+    {
+      "title": "Vídeo 2",
+      "url": "https://www.youtube.com/watch?v=bgDLHxd4Jxg"
+    },
+    {
+      "title": "Vídeo 3",
+      "url": "https://www.youtube.com/watch?v=ADqLhxmUG_4&t=9s"
+    },
+    {
+      "title": "Vídeo 4",
+      "url": "https://www.youtube.com/watch?v=TdGNhLCejYo&t=23s"
+    }
+  ],
+  "Bluey Português Brasil Canal": [
+    {
+      "title": "Vídeo 1",
+      "url": "https://www.youtube.com/watch?v=RpW_8TEdF8M&list=PLVkj_daPh17Sb8YEv5PVbyCjqz7IkDHXA&index=3"
+    },
+    {
+      "title": "Vídeo 2",
+      "url": "https://www.youtube.com/watch?v=mMC352cfAA8&list=PLVkj_daPh17Sb8YEv5PVbyCjqz7IkDHXA&index=4"
+    },
+    {
+      "title": "Vídeo 3",
+      "url": "https://www.youtube.com/watch?v=fYJD9aRRwV0&list=PLVkj_daPh17Sb8YEv5PVbyCjqz7IkDHXA&index=5"
+    },
+    {
+      "title": "Vídeo 4",
+      "url": "https://www.youtube.com/watch?v=CElTq5DannU&list=PLVkj_daPh17Sb8YEv5PVbyCjqz7IkDHXA&index=6"
+    }
+  ],
+  "O Show da Luna!": [
+    {
+      "title": "Vídeo 1",
+      "url": "https://www.youtube.com/watch?v=FXdKwbOQce4"
+    },
+    {
+      "title": "Vídeo 2",
+      "url": "https://www.youtube.com/watch?v=nnbCMqnvvy8"
+    },
+    {
+      "title": "Vídeo 3",
+      "url": "https://www.youtube.com/watch?v=hRl7q-KQaUo"
+    },
+    {
+      "title": "Vídeo 4",
+      "url": "https://www.youtube.com/watch?v=qGSnuo83vHY"
+    },
+    {
+      "title": "Vídeo 5",
+      "url": "https://www.youtube.com/watch?v=K8N-mZ1mvhg"
+    },
+    {
+      "title": "Vídeo 6",
+      "url": "https://www.youtube.com/watch?v=E4--QaEEHKQ"
+    },
+    {
+      "title": "Vídeo 7",
+      "url": "https://www.youtube.com/watch?v=cykfNNJipPU"
+    }
+  ]
 }

@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect, url_for, jsonify
+from flask import Flask, request, render_template_string
 from flask_cors import CORS
 import os
 import json
@@ -6,66 +6,77 @@ import json
 app = Flask(__name__)
 CORS(app)
 
-LINKS_DIR = 'static/links'
-VIDEOS_JSON_PATH = os.path.join('static', 'videos.json')  # agora está DENTRO de /static
+LINKS_DIR = "static/links"
+VIDEOS_JSON_PATH = "static/videos.json"
 
-# Garante que a pasta exista
+# Garante que a pasta de links existe
 os.makedirs(LINKS_DIR, exist_ok=True)
 
-@app.route('/', methods=['GET'])
-def index():
-    pastas = sorted([f.replace('.txt', '') for f in os.listdir(LINKS_DIR) if f.endswith('.txt')])
-    html = '''
+# HTML simples para o painel admin
+HTML_TEMPLATE = """
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LeoFlix Admin</title>
+</head>
+<body>
     <h1>Adicionar Vídeo</h1>
     <form method="post">
-        Nome da Pasta (Categoria):<br>
-        <input type="text" name="pasta"><br><br>
-        Link do Vídeo (YouTube):<br>
-        <input type="text" name="link"><br><br>
-        <input type="submit" value="Adicionar">
+        <label>Nome da Pasta (Categoria):</label><br>
+        <input type="text" name="folder" required><br><br>
+        <label>Link do Vídeo (YouTube):</label><br>
+        <input type="text" name="link" required><br><br>
+        <button type="submit">Adicionar</button>
     </form>
     <hr>
     <h2>Pastas Existentes</h2>
     <ul>
-    '''
-    for pasta in pastas:
-        html += f'<li>{pasta}</li>'
-    html += '</ul>'
-    return html
+    {% for pasta in pastas %}
+        <li>{{ pasta }}</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
+"""
 
-@app.route('/', methods=['POST'])
-def adicionar():
-    pasta = request.form['pasta'].strip()
-    link = request.form['link'].strip()
+def gerar_videos_json():
+    resultado = {}
 
-    if not pasta or not link:
-        return redirect(url_for('index'))
-
-    caminho = os.path.join(LINKS_DIR, f'{pasta}.txt')
-    with open(caminho, 'a', encoding='utf-8') as f:
-        f.write(link + '\n')
-
-    gerar_json()
-    return redirect(url_for('index'))
-
-@app.route('/videos.json', methods=['GET'])
-def servir_json():
-    if not os.path.exists(VIDEOS_JSON_PATH):
-        gerar_json()
-    with open(VIDEOS_JSON_PATH, 'r', encoding='utf-8') as f:
-        data = json.load(f)
-    return jsonify(data)
-
-def gerar_json():
-    videos = {}
     for arquivo in os.listdir(LINKS_DIR):
-        if arquivo.endswith('.txt'):
-            categoria = arquivo.replace('.txt', '')
-            with open(os.path.join(LINKS_DIR, arquivo), 'r', encoding='utf-8') as f:
-                links = [linha.strip() for linha in f.readlines() if linha.strip()]
-                videos[categoria] = links
-    with open(VIDEOS_JSON_PATH, 'w', encoding='utf-8') as f:
-        json.dump(videos, f, indent=2, ensure_ascii=False)
+        if arquivo.endswith(".txt"):
+            nome_pasta = os.path.splitext(arquivo)[0]
+            caminho = os.path.join(LINKS_DIR, arquivo)
+            with open(caminho, "r", encoding="utf-8") as f:
+                links = [linha.strip() for linha in f if linha.strip()]
+                resultado[nome_pasta] = links
 
-if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=10000, debug=True)
+    with open(VIDEOS_JSON_PATH, "w", encoding="utf-8") as f:
+        json.dump(resultado, f, indent=4, ensure_ascii=False)
+
+@app.route("/", methods=["GET", "POST"])
+def admin():
+    if request.method == "POST":
+        folder = request.form["folder"].strip()
+        link = request.form["link"].strip()
+
+        if not folder or not link:
+            return "Erro: todos os campos são obrigatórios", 400
+
+        # Salva o link no arquivo da pasta
+        arquivo_path = os.path.join(LINKS_DIR, f"{folder}.txt")
+        with open(arquivo_path, "a", encoding="utf-8") as f:
+            f.write(link + "\n")
+
+        gerar_videos_json()
+
+    # Exibe as pastas existentes
+    pastas = [os.path.splitext(p)[0] for p in os.listdir(LINKS_DIR) if p.endswith(".txt")]
+    return render_template_string(HTML_TEMPLATE, pastas=pastas)
+
+@app.route("/videos.json")
+def videos():
+    with open(VIDEOS_JSON_PATH, "r", encoding="utf-8") as f:
+        return f.read(), 200, {"Content-Type": "application/json"}
+
+if __name__ == "__main__":
+    app.run(debug=True, host="0.0.0.0", port=10000)

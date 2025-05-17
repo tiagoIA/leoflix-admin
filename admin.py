@@ -7,7 +7,7 @@ app = Flask(__name__)
 CORS(app)
 
 LINKS_DIR = 'static/links'
-VIDEOS_JSON_PATH = 'videos.json'  # fora da pasta static
+VIDEOS_JSON_PATH = os.path.join('static', 'videos.json')  # agora está DENTRO de /static
 
 # Garante que a pasta exista
 os.makedirs(LINKS_DIR, exist_ok=True)
@@ -69,4 +69,3 @@ def gerar_json():
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=10000, debug=True)
-

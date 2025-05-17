@@ -1,152 +1,59 @@
 {
-  "Superbook": [
-    {
-      "title": "Superbook - A Criação",
-      "url": "https://www.youtube.com/watch?v=DQMWCa8NFyQ"
-    },
-    {
-      "title": "Superbook - A Queda do Homem",
-      "url": "https://www.youtube.com/watch?v=SXsWZVWR0k8"
-    },
-    {
-      "title": "Superbook - Caim e Abel",
-      "url": "https://www.youtube.com/watch?v=Kz4D5WIVjo4"
-    },
-    {
-      "title": "Superbook - Noé e o Dilúvio",
-      "url": "https://www.youtube.com/watch?v=xPRjZsjE0Ok"
-    },
-    {
-      "title": "Superbook - A Torre de Babel",
-      "url": "https://www.youtube.com/watch?v=a6WmBACVWt0"
-    },
-    {
-      "title": "Superbook - Abraão e Isaque",
-      "url": "https://www.youtube.com/watch?v=g4FPi8b4iG4"
-    }
-  ],
-  "3 Palavrinhas": [
-    {
-      "title": "3 Palavrinhas - Volume 1 Completo",
-      "url": "https://www.youtube.com/watch?v=x2xQWaqRO7M"
-    },
-    {
-      "title": "3 Palavrinhas - Volume 2 Completo",
-      "url": "https://www.youtube.com/watch?v=TFpoczNfp0I"
-    },
-    {
-      "title": "3 Palavrinhas - Volume 3 Completo",
-      "url": "https://www.youtube.com/watch?v=nAcNL9KTLK8"
-    },
-    {
-      "title": "3 Palavrinhas - Volume 4 Completo",
-      "url": "https://www.youtube.com/watch?v=fMWEvkXXnfc"
-    },
-    {
-      "title": "3 Palavrinhas - Volume 5 Completo",
-      "url": "https://www.youtube.com/watch?v=66NRqZBXtNo"
-    },
-    {
-      "title": "3 Palavrinhas - Volume 6 Completo",
-      "url": "https://www.youtube.com/watch?v=ftb2tS8E344"
-    }
-  ],
-  "Desenhos Bíblicos": [
-    {
-      "title": "Desenhos Bíblicos - José do Egito",
-      "url": "https://www.youtube.com/watch?v=vw_xToTMl9Y"
-    },
-    {
-      "title": "Desenhos Bíblicos - Moisés e o Êxodo",
-      "url": "https://www.youtube.com/watch?v=Im7W1eVaNxk"
-    },
-    {
-      "title": "Desenhos Bíblicos - Davi e Golias",
-      "url": "https://www.youtube.com/watch?v=S0ZHwJKBeCg"
-    },
-    {
-      "title": "Desenhos Bíblicos - Daniel na Cova dos Leões",
-      "url": "https://www.youtube.com/watch?v=UmEXRBD4L1s"
-    }
-  ],
-  "Historinhas Cristãs": [
-    {
-      "title": "Historinhas Cristãs - A Arca de Noé",
-      "url": "https://www.youtube.com/watch?v=4v4mcaVVTAQ"
-    },
-    {
-      "title": "Historinhas Cristãs - Jonas e o Grande Peixe",
-      "url": "https://www.youtube.com/watch?v=RaBzen5geVQ"
-    },
-    {
-      "title": "Historinhas Cristãs - A História de Ester",
-      "url": "https://www.youtube.com/watch?v=Y5xAQzE-P1k"
-    },
-    {
-      "title": "Historinhas Cristãs - A História de Rute",
-      "url": "https://www.youtube.com/watch?v=ybwSkdEWgRQ"
-    },
-    {
-      "title": "Historinhas Cristãs - A História de Elias",
-      "url": "https://www.youtube.com/watch?v=B1jjJrR7Zqg"
-    },
-    {
-      "title": "Historinhas Cristãs - A História de Eliseu",
-      "url": "https://www.youtube.com/watch?v=sVYUJzKyY7s"
-    },
-    {
-      "title": "Historinhas Cristãs - A História de Samuel",
-      "url": "https://www.youtube.com/watch?v=xWopFn1TnRI"
-    },
-    {
-      "title": "Historinhas Cristãs - A História de Sansão",
-      "url": "https://www.youtube.com/watch?v=MOMnAW1VSBQ"
-    },
-    {
-      "title": "Historinhas Cristãs - A História de Salomão",
-      "url": "https://www.youtube.com/watch?v=HPrPUqeRxv8"
-    },
-    {
-      "title": "Historinhas Cristãs - A História de Isaías",
-      "url": "https://www.youtube.com/watch?v=Ku_843utD0o"
-    },
-    {
-      "title": "Historinhas Cristãs - A História de Jeremias",
-      "url": "https://www.youtube.com/watch?v=vfWd3_vVezM"
-    },
-    {
-      "title": "Historinhas Cristãs - A História de Ezequiel",
-      "url": "https://www.youtube.com/watch?v=a1JRktkkPsA"
-    }
-  ],
-  "Canal Infantil Cristão": [
-    {
-      "title": "Canal Infantil Cristão - O Bom Samaritano",
-      "url": "https://www.youtube.com/watch?v=Lwdi_WzoT38"
-    },
-    {
-      "title": "Canal Infantil Cristão - O Filho Pródigo",
-      "url": "https://www.youtube.com/watch?v=bgDLHxd4Jxg"
-    },
-    {
-      "title": "Canal Infantil Cristão - O Semeador",
-      "url": "https://www.youtube.com/watch?v=ADqLhxmUG_4"
-    },
-    {
-      "title": "Canal Infantil Cristão - O Rico e Lázaro",
-      "url": "https://www.youtube.com/watch?v=TdGNhLCejYo"
-    }
-  ],
-  "Bluey Português Brasil Canal Oficial": [
-    {
-      "title": "Mundo de Bluey ✨ | 30 MINUTOS | EPISÓDIOS COMPLETOS",
-      "url": "https://www.youtube.com/watch?v=mMC352cfAA8"
-    }
-  ],
-  "O Show da Luna!": [
-    {
-      "title": "MARATONA MELHORES EPISÓDIOS DA 1ª TEMPORADA ❤️",
-      "url": "https://www.youtube.com/watch?v=FXdKwbOQce4"
-    }
-  ]
+    "Smilingüido": [
+        "https://www.youtube.com/watch?v=DQMWCa8NFyQ",
+        "https://www.youtube.com/watch?v=SXsWZVWR0k8",
+        "https://www.youtube.com/watch?v=Kz4D5WIVjo4",
+        "https://www.youtube.com/watch?v=xPRjZsjE0Ok",
+        "https://www.youtube.com/watch?v=a6WmBACVWt0",
+        "https://www.youtube.com/watch?v=g4FPi8b4iG4"
+    ],
+    "Superbook": [
+        "https://www.youtube.com/watch?v=x2xQWaqRO7M",
+        "https://www.youtube.com/watch?v=TFpoczNfp0I",
+        "https://www.youtube.com/watch?v=nAcNL9KTLK8",
+        "https://www.youtube.com/watch?v=fMWEvkXXnfc",
+        "https://www.youtube.com/watch?v=66NRqZBXtNo",
+        "https://www.youtube.com/watch?v=ftb2tS8E344"
+    ],
+    "Anjinhos da Esperança": [
+        "https://www.youtube.com/watch?v=vw_xToTMl9Y",
+        "https://www.youtube.com/watch?v=Im7W1eVaNxk&t=10s",
+        "https://www.youtube.com/watch?v=S0ZHwJKBeCg&t=15s",
+        "https://www.youtube.com/watch?v=UmEXRBD4L1s&t=7s"
+    ],
+    "Numberblocks": [
+        "https://www.youtube.com/watch?v=4v4mcaVVTAQ",
+        "https://www.youtube.com/watch?v=RaBzen5geVQ&t=1504s",
+        "https://www.youtube.com/watch?v=Y5xAQzE-P1k",
+        "https://www.youtube.com/watch?v=ybwSkdEWgRQ",
+        "https://www.youtube.com/watch?v=B1jjJrR7Zqg",
+        "https://www.youtube.com/watch?v=sVYUJzKyY7s",
+        "https://www.youtube.com/watch?v=xWopFn1TnRI",
+        "https://www.youtube.com/watch?v=MOMnAW1VSBQ",
+        "https://www.youtube.com/watch?v=HPrPUqeRxv8",
+        "https://www.youtube.com/watch?v=Ku_843utD0o",
+        "https://www.youtube.com/watch?v=vfWd3_vVezM",
+        "https://www.youtube.com/watch?v=a1JRktkkPsA"
+    ],
+    "Hot Wheels": [
+        "https://www.youtube.com/watch?v=Lwdi_WzoT38",
+        "https://www.youtube.com/watch?v=bgDLHxd4Jxg",
+        "https://www.youtube.com/watch?v=ADqLhxmUG_4&t=9s",
+        "https://www.youtube.com/watch?v=TdGNhLCejYo&t=23s"
+    ],
+    "Bluey Português Brasil Canal": [
+        "https://www.youtube.com/watch?v=RpW_8TEdF8M&list=PLVkj_daPh17Sb8YEv5PVbyCjqz7IkDHXA&index=3",
+        "https://www.youtube.com/watch?v=mMC352cfAA8&list=PLVkj_daPh17Sb8YEv5PVbyCjqz7IkDHXA&index=4",
+        "https://www.youtube.com/watch?v=fYJD9aRRwV0&list=PLVkj_daPh17Sb8YEv5PVbyCjqz7IkDHXA&index=5",
+        "https://www.youtube.com/watch?v=CElTq5DannU&list=PLVkj_daPh17Sb8YEv5PVbyCjqz7IkDHXA&index=6"
+    ],
+    "O Show da Luna!": [
+        "https://www.youtube.com/watch?v=FXdKwbOQce4",
+        "https://www.youtube.com/watch?v=nnbCMqnvvy8",
+        "https://www.youtube.com/watch?v=hRl7q-KQaUo",
+        "https://www.youtube.com/watch?v=qGSnuo83vHY",
+        "https://www.youtube.com/watch?v=K8N-mZ1mvhg",
+        "https://www.youtube.com/watch?v=E4--QaEEHKQ",
+        "https://www.youtube.com/watch?v=cykfNNJipPU"
+    ]
 }

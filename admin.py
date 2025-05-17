@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect, url_for
+from flask import Flask, request, redirect, url_for, jsonify
 from flask_cors import CORS
 import os
 import json
@@ -7,9 +7,8 @@ app = Flask(__name__)
 CORS(app)
 
 LINKS_DIR = 'static/links'
-VIDEOS_JSON_PATH = 'static/videos.json'
+VIDEOS_JSON_PATH = 'videos.json'  # fora da pasta static
 
-# Garante que a pasta 'static/links' exista
 os.makedirs(LINKS_DIR, exist_ok=True)
 
 @app.route('/', methods=['GET'])
@@ -47,6 +46,14 @@ def adicionar():
 
     gerar_json()
     return redirect(url_for('index'))
+
+@app.route('/videos.json', methods=['GET'])
+def servir_json():
+    if not os.path.exists(VIDEOS_JSON_PATH):
+        gerar_json()
+    with open(VIDEOS_JSON_PATH, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    return jsonify(data)
 
 def gerar_json():
     videos = {}
